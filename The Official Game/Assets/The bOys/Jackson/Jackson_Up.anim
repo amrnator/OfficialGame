@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Charlie_Idle
+  m_Name: Jackson_Up
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,9 +19,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: f9d3f57acb385456db61d42992592d2c, type: 3}
+      value: {fileID: 21300000, guid: 4a8a7f1c265834a6489e441df91efb68, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 1d14f3976316544218f675f3b644f4e6, type: 3}
+      value: {fileID: 21300000, guid: 4aa2779903845455ea86503e12b7ae33, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 214e48b589c394ff09da639fcc2ab987, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 8c56924553d344ad4aa84b564a9a6fdb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -41,14 +45,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f9d3f57acb385456db61d42992592d2c, type: 3}
-    - {fileID: 21300000, guid: 1d14f3976316544218f675f3b644f4e6, type: 3}
+    - {fileID: 21300000, guid: 4a8a7f1c265834a6489e441df91efb68, type: 3}
+    - {fileID: 21300000, guid: 4aa2779903845455ea86503e12b7ae33, type: 3}
+    - {fileID: 21300000, guid: 214e48b589c394ff09da639fcc2ab987, type: 3}
+    - {fileID: 21300000, guid: 8c56924553d344ad4aa84b564a9a6fdb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16666667
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

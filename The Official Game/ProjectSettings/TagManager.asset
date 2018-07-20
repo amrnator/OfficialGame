@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,12 @@ TagManager:
   - name: Ground
     uniqueID: 1713331125
     locked: 0
+  - name: Follower
+    uniqueID: 1145011937
+    locked: 0
   - name: Player
     uniqueID: 1063955729
+    locked: 0
+  - name: Obstacle
+    uniqueID: 1835380957
     locked: 0
