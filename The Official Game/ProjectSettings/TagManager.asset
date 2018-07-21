@@ -54,3 +54,6 @@ TagManager:
   - name: Obstacle
     uniqueID: 1835380957
     locked: 0
+  - name: NPC
+    uniqueID: 1520829491
+    locked: 0

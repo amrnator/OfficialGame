@@ -29,40 +29,50 @@ public class Player : MonoBehaviour
             animator.SetBool("PlayerStop", false);
         }else {
             animator.SetBool("PlayerStop", true);
-            //follower.sendMove(Vector3.zero);
         }
 
         if(Input.GetKey(KeyCode.A) && transform.position == pos) {        // Left
-            animator.SetTrigger("FaceLeft");
+            
             orientation = Vector3.left;
-            vel = Move(Vector3.left, "PlayerLeft");
+            vel = Move(Vector3.left, "PlayerLeft", "FaceLeft");
 
-            follower.sendMove(lastMove); 
-            lastMove = vel; //update
+            if (vel != Vector3.zero)
+            {
+                follower.sendMove(lastMove);    //send info to closest follower
+                lastMove = vel;                 //update
+            }
         }
         if(Input.GetKey(KeyCode.D) && transform.position == pos) {        // Right
-            animator.SetTrigger("FaceRight");
+            
             orientation = Vector3.right;
-            vel = Move(Vector3.right, "PlayerRight");
+            vel = Move(Vector3.right, "PlayerRight", "FaceRight");
 
-            follower.sendMove(lastMove);    //send info to closest follower
-            lastMove = vel; //update
+            if (vel != Vector3.zero)
+            {
+                follower.sendMove(lastMove);    //send info to closest follower
+                lastMove = vel;                 //update
+            }
         }
         if(Input.GetKey(KeyCode.W) && transform.position == pos) {        // Up
-            animator.SetTrigger("FaceUp");
-            orientation = Vector3.up;
-            vel = Move(Vector3.up, "PlayerUp");
 
-            follower.sendMove(lastMove);    //send info to closest follower
-            lastMove = vel; //update
+            orientation = Vector3.up;
+            vel = Move(Vector3.up, "PlayerUp", "FaceUp");
+
+            if (vel != Vector3.zero)
+            {
+                follower.sendMove(lastMove);    //send info to closest follower
+                lastMove = vel;                 //update
+            }
         }
         if(Input.GetKey(KeyCode.S) && transform.position == pos) {        // Down
-            animator.SetTrigger("FaceDown");
+            //animator.SetTrigger("FaceDown");
             orientation = Vector3.down;
-            vel = Move(Vector3.down, "PlayerDown");
+            vel = Move(Vector3.down, "PlayerDown", "FaceDown");
 
-            follower.sendMove(lastMove);    //send info to closest follower
-            lastMove = vel;                 //update
+            if (vel != Vector3.zero) {
+                follower.sendMove(lastMove);    //send info to closest follower
+                lastMove = vel;                 //update
+            }
         }
 
         transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);    // Move to pos   
@@ -74,7 +84,7 @@ public class Player : MonoBehaviour
     }
 
 
-    Vector3 Move(Vector3 dir, string animTrigger)
+    Vector3 Move(Vector3 dir, string animTrigger, string standing)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1f);
 
@@ -83,7 +93,7 @@ public class Player : MonoBehaviour
         {
             if (hit.collider.tag.Equals("Obstacle"))
             {
-                animator.SetBool("PlayerStop", true);
+                animator.SetTrigger(standing);
 
                 return Vector3.zero;
             }
@@ -102,12 +112,11 @@ public class Player : MonoBehaviour
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, orientation, 1f);
 
         if(hit2d.collider != null){
-            print(hit2d.collider.tag);
+            Interactable x = hit2d.collider.GetComponent<Interactable>();
+            if (x != null) {
+                x.Activate();
+            }
         }
 
-
     }
-
- 
-
 }

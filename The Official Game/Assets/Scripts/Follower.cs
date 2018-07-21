@@ -24,7 +24,6 @@ public class Follower : MonoBehaviour {
 	void Start () {
         transform.position = player.transform.position;
         pos = transform.position;
-        //speed = player.speed;
         recievedDir = Vector3.zero;
         lastMove = Vector3.zero;
     }
